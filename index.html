@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vitaloop Prayer of the Day</title>
+
+<style>
+body {
+  margin: 0;
+  background: #f7f2ec;
+  font-family: Inter, sans-serif;
+  color: #2a2423;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.prayer-card {
+  max-width: 700px;
+  padding: 48px 32px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a6a82;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: Georgia, serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: #5b3a57;
+  margin-bottom: 24px;
+}
+
+#prayer {
+  font-size: 20px;
+  line-height: 1.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="prayer-card">
+  <p class="eyebrow">Vitaloop</p>
+  <h2>Prayer of the Day</h2>
+  <p id="prayer">Loading today’s prayer...</p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const prayers = [
+    "Lord Jesus Christ, guide me to live this day with humility, peace, and faithful trust in You. Amen.",
+
+    "Holy Spirit, quiet my distractions and help me remain attentive to God’s presence throughout this day. Amen.",
+
+    "Blessed Mother, lead me closer to your Son and teach me to live with patience, gentleness, and prayerful devotion. Amen.",
+
+    "Lord, help me remain faithful in the ordinary moments of today, trusting that small acts of love and obedience matter. Amen.",
+
+    "Jesus, give me the grace to begin again today with courage, repentance, and deeper trust in Your mercy. Amen.",
+
+    "Sacred Heart of Jesus, form my heart in charity, stillness, and compassion toward others. Amen.",
+
+    "Lord, teach me to seek holiness not only in great moments, but in the quiet rhythms of everyday life. Amen."
+  ];
+
+  const today = new Date();
+  const startOfYear = new Date(today.getFullYear(), 0, 1);
+  const dayOfYear = Math.floor((today - startOfYear) / 86400000);
+
+  const prayerElement = document.getElementById("prayer");
+
+  if (prayerElement) {
+    prayerElement.textContent =
+      prayers[dayOfYear % prayers.length];
+  }
+
+});
+</script>
+
+</body>
+</html>
